@@ -1,0 +1,554 @@
+<!DOCTYPE html><html dir="rtl" lang="fa"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>طرح‌های انتخاب رشته دکتر میرهلی | انتخاب رشته تخصصی VIP</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --page-background: #121212;
+            --card-background: #1d1d1d;
+            --text-color: #e0e0e0;
+            --text-color-secondary: #a0a0a0;
+            --accent-gold: #D4AF37;
+            --accent-gold-bright: #FFF8E7;
+            --accent-gold-darker: #b8860b;
+            --accent-gold-glow: rgba(212, 175, 55, 0.1);
+            --accent-gold-glow-hover: rgba(212, 175, 55, 0.2);
+            --accent-gold-border: rgba(212, 175, 55, 0.3);
+            --success-color: #27ae60;
+            --telegram-blue: #0088cc;
+            --discount-red: #e74c3c;
+            --info-blue: #3498db;
+        }
+
+        /* --- Animations --- */
+        @keyframes rotate-diamond { 0% { transform: rotateY(0deg) scale(1); } 50% { transform: rotateY(180deg) scale(1.1); } 100% { transform: rotateY(360deg) scale(1); } }
+        @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+        @keyframes pulse { 0%, 100% { opacity: 0.7; transform: scale(1); } 50% { opacity: 1; transform: scale(1.1); } }
+        @keyframes jiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(5deg); } 75% { transform: rotate(-5deg); } }
+        @keyframes takeoff { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-5px) rotate(5deg); } }
+
+        @keyframes shine-sweep-vertical {
+            0% { transform: translateY(-120%) skewY(-20deg); }
+            100% { transform: translateY(120%) skewY(-20deg); }
+        }
+
+        @keyframes flash-gold-title {
+            0%, 40%, 100% { color: var(--accent-gold); text-shadow: none; }
+            50% { color: var(--accent-gold-bright); text-shadow: 0 0 12px var(--accent-gold-bright); }
+        }
+
+        @keyframes fast-luxury-flash {
+            0%, 100% { box-shadow: 0 0 35px var(--accent-gold-glow); border-color: var(--accent-gold-border); }
+            50% { box-shadow: 0 0 50px rgba(255, 248, 231, 0.4); border-color: rgba(255, 248, 231, 0.7); }
+        }
+
+        @keyframes blink-policy {
+            0%, 100% { box-shadow: 0 4px 20px rgba(52, 152, 219, 0.1); border-color: var(--info-blue); }
+            50% { box-shadow: 0 4px 35px rgba(52, 152, 219, 0.6); border-color: #5dade2; background-color: rgba(52, 152, 219, 0.2); }
+        }
+
+        .animated-emoji { display: inline-block; vertical-align: middle; font-size: 1.1em; margin-left: 8px; }
+        .animated-emoji.trophy { animation: bob 3s ease-in-out infinite; }
+        .animated-emoji.lightbulb { animation: pulse 2.5s ease-in-out infinite; }
+        .animated-emoji.rocket { animation: takeoff 2s ease-in-out infinite; }
+
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            color: var(--text-color);
+            margin: 0;
+            line-height: 1.8;
+            background-color: var(--page-background);
+            background-image: 
+                repeating-linear-gradient(45deg, #1a1a1a, #1a1a1a 1px, transparent 1px, transparent 20px),
+                repeating-linear-gradient(-45deg, #1a1a1a, #1a1a1a 1px, transparent 1px, transparent 20px);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .support-bar { background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px); color: white; text-align: center; padding: 12px; font-size: 0.95rem; border-bottom: 1px solid var(--accent-gold-border); }
+        .support-bar a { color: var(--accent-gold); font-weight: 700; text-decoration: none; transition: color 0.3s; }
+        .support-bar a:hover { color: #fff; }
+
+        .main-container { max-width: 1200px; margin: auto; text-align: center; padding: 20px; }
+        
+        .header-container, .registration-funnel, .pricing-card {
+            background-color: var(--card-background);
+            border-radius: 20px;
+            border: 1px solid var(--accent-gold-border);
+            box-shadow: 0 0 35px var(--accent-gold-glow);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-container:hover, .registration-funnel:hover, .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 50px var(--accent-gold-glow-hover);
+        }
+
+        .header-container { 
+            padding: 40px; 
+            margin-bottom: 50px; 
+            animation: fast-luxury-flash 0.8s linear infinite;
+        }
+
+        .main-title { 
+            font-size: 2.8rem; font-weight: 800; margin-bottom: 20px; position: relative;
+            display: inline-block; padding-bottom: 15px; line-height: 1.4;
+            background: linear-gradient(90deg, #fdf4d0, #D4AF37, #b8860b);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; color: transparent;
+        }
+        .main-title::after {
+            content: ''; position: absolute; bottom: 0; left: 50%;
+            transform: translateX(-50%); width: 120px; height: 3px;
+            background: var(--accent-gold); border-radius: 2px; opacity: 0.5;
+        }
+
+        .resume-subtitle { display: block; font-size: 1.1rem; font-weight: 400; color: var(--text-color-secondary); margin-top: 10px; line-height: 1.7; }
+        .resume-subtitle strong { font-weight: 700; color: var(--text-color); }
+        .main-subtitle { font-size: 1.2rem; color: var(--text-color-secondary); margin-bottom: 35px; line-height: 2; }
+        
+        .notice-box {
+            max-width: 850px; margin: 0 auto 20px auto; padding: 20px;
+            border-radius: 10px; display: flex; align-items: center;
+            justify-content: center; text-align: center;
+        }
+        .notice-box .info-icon { font-size: 1.5rem; margin-left: 15px; flex-shrink: 0; }
+        .notice-box p { margin: 0; font-size: 1rem; font-weight: 500; color: var(--text-color); line-height: 1.8; }
+        
+        .urgency-notice {
+            background-color: rgba(212, 20, 20, 0.1);
+            border: 1px solid var(--discount-red);
+            box-shadow: 0 4px 20px rgba(212, 20, 20, 0.1);
+            margin-top: -20px;
+        }
+        .urgency-notice .info-icon { color: var(--discount-red); }
+        .urgency-notice p strong { color: var(--discount-red); font-weight: 800; }
+        
+        .policy-notice {
+            background-color: rgba(52, 152, 219, 0.1);
+            border: 1px solid var(--info-blue);
+            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.1);
+            margin-bottom: 50px;
+            animation: blink-policy 2s infinite; 
+        }
+        .policy-notice .info-icon { color: var(--info-blue); }
+        .policy-notice p strong { color: var(--info-blue); font-weight: 800; }
+
+        .pricing-container { display: flex; justify-content: center; align-items: stretch; flex-wrap: wrap; gap: 30px; }
+        .pricing-card { width: 350px; display: flex; flex-direction: column; padding: 0; }
+
+        .pricing-card.vip-highlight::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 50%;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(212, 175, 55, 0.15) 50%, rgba(255, 255, 255, 0) 100%);
+            animation: shine-sweep-vertical 5s ease-in-out 2s infinite;
+            z-index: 1;
+        }
+        .pricing-card.vip-highlight .plan-title-toggle > span:first-child {
+            animation: flash-gold-title 1.5s linear infinite;
+        }
+
+        .card-header { padding: 25px 25px 15px 25px; border-bottom: 1px solid var(--accent-gold-border); display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; }
+        
+        .plan-title-toggle {
+            background-color: transparent; border: 2px solid var(--accent-gold); border-radius: 12px;
+            padding: 8px 25px; font-family: 'Vazirmatn', sans-serif;
+            display: inline-flex; align-items: center; justify-content: center;
+            margin-bottom: 15px; box-shadow: 0 6px 15px rgba(212, 175, 55, 0.1);
+        }
+        .plan-title-toggle > span:first-child { font-size: 2.2rem; font-weight: 800; color: var(--accent-gold); }
+        
+        .suitability-btn {
+            border: 1px solid var(--accent-gold); color: var(--accent-gold); background-color: transparent;
+            border-radius: 8px; padding: 8px 15px; font-family: 'Vazirmatn', sans-serif;
+            font-weight: 700; font-size: 0.9rem; cursor: pointer; text-decoration: none;
+            display: inline-block; transition: all 0.3s ease; margin-top: 10px;
+        }
+        .suitability-btn:hover { background-color: rgba(212, 175, 55, 0.1); }
+
+        .card-body { padding: 30px; flex-grow: 1; position: relative; z-index: 2; }
+        .price-container { margin-bottom: 25px; min-height: 95px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        
+        .price-line {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+        .price-line.discounted {
+            color: var(--accent-gold);
+            font-size: 1.7rem;
+        }
+        .price-line del {
+            color: var(--discount-red);
+            font-size: 1.2rem;
+            margin-left: 10px;
+            opacity: 0.7;
+        }
+        .price-line:last-child {
+            margin-bottom: 0;
+        }
+        .price-line .price-currency {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+        
+        .early-bird-badge {
+            background-color: rgba(212, 175, 55, 0.2);
+            color: var(--accent-gold);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border: 1px solid var(--accent-gold);
+        }
+
+        .value-proposition {
+            background-color: rgba(255,255,255,0.05);
+            border-right: 3px solid var(--accent-gold);
+            padding: 10px;
+            font-size: 0.85rem;
+            color: var(--text-color-secondary);
+            margin-bottom: 20px;
+            text-align: right;
+            border-radius: 5px;
+        }
+
+        .features-list { list-style: none; padding: 0; margin: 0; text-align: right; }
+        .features-list li { margin-bottom: 12px; display: flex; align-items: center; font-size: 1rem; font-weight: 500; color: var(--text-color); min-height: 35px; }
+        .features-list li::before { content: '✓'; color: var(--accent-gold); font-weight: 800; margin-left: 10px; flex-shrink: 0; }
+        .features-list li.has-button { justify-content: space-between; }
+        .features-list li.has-button > span { flex-grow: 1; }
+
+        .details-btn {
+            background: linear-gradient(130deg, var(--accent-gold), var(--accent-gold-darker));
+            border: none; border-radius: 9px; color: #121212; padding: 6px 18px;
+            font-family: 'Vazirmatn', sans-serif; font-weight: 800; font-size: 0.9rem;
+            cursor: pointer; text-decoration: none; display: inline-block;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2); transition: all 0.3s ease; flex-shrink: 0;
+        }
+        .details-btn:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 6px 25px rgba(212, 175, 55, 0.3); }
+        
+        .modal-backdrop {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px);
+            display: none; align-items: center; justify-content: center;
+            z-index: 9999; opacity: 0; transition: opacity 0.3s ease;
+        }
+        .modal-backdrop.active { display: flex; opacity: 1; }
+        .modal-content {
+            background-color: var(--card-background); color: var(--text-color); padding: 30px 40px; border-radius: 15px;
+            max-width: 800px; width: 90%; max-height: 85vh; overflow-y: auto; position: relative;
+            border: 1px solid var(--accent-gold-border); box-shadow: 0 5px 50px rgba(212, 175, 55, 0.15);
+            transform: translateY(-50px); transition: transform 0.3s ease;
+        }
+        .modal-backdrop.active .modal-content { transform: translateY(0); }
+        .modal-toggle { display: none; }
+        .modal-toggle:checked + .modal-backdrop { display: flex; opacity: 1; }
+        .modal-toggle:checked + .modal-backdrop .modal-content { transform: translateY(0); }
+        .modal-close { position: absolute; top: 15px; left: 20px; font-size: 2rem; font-weight: bold; color: var(--text-color-secondary); cursor: pointer; line-height: 1; text-decoration: none; transition: color 0.3s, transform 0.3s; }
+        .modal-close:hover { color: var(--accent-gold); transform: rotate(90deg); }
+        .modal-title { font-size: 1.8rem; font-weight: 800; color: var(--accent-gold); margin-top: 0; margin-bottom: 25px; border-bottom: 2px solid var(--accent-gold-border); padding-bottom: 15px; }
+        .modal-body p { font-size: 1rem; line-height: 2.1; text-align: justify; color: var(--text-color); }
+        .modal-body ul { list-style: none; padding-right: 0; }
+        .modal-body ul li { padding-right: 30px; position: relative; margin-bottom: 15px; }
+        .modal-body ul li::before { content: '✓'; position: absolute; right: 0; top: 0; color: var(--accent-gold); font-weight: bold; font-size: 1.2rem; }
+        .modal-body .final-word { margin-top: 30px; padding: 15px; background-color: rgba(212, 175, 55, 0.05); border-right: 5px solid var(--accent-gold); font-style: italic; font-weight: 500; }
+        
+        .section-divider { margin: 70px 0 50px 0; text-align: center; }
+        .section-divider h2 { font-size: 2.2rem; font-weight: 800; color: var(--text-color); margin-bottom: 10px; display: inline-flex; align-items: center; }
+        .section-divider p { font-size: 1.1rem; color: var(--text-color-secondary); margin-top: 0; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .section-divider::after { content: ''; display: block; width: 100px; height: 2px; background: var(--accent-gold); border-radius: 2px; margin: 25px auto 0 auto; opacity: 0.7; }
+
+        .closing-section { margin-top: 60px; padding: 30px 0; padding-bottom: 15px; }
+        .punchline { font-size: 1.5rem; font-weight: 800;  color: var(--text-color); margin-bottom: 25px; line-height: 1.9; }
+        .audio-player-container { margin-top: 30px; }
+        .audio-player-container h3 { font-size: 1.2rem; color: var(--accent-gold); margin-bottom: 15px; }
+        audio { width: 100%; max-width: 400px; }
+
+        .registration-funnel { margin-top: 60px; padding: 40px 20px; animation: fast-luxury-flash 0.8s linear infinite; }
+        .funnel-title { font-size: 2rem; font-weight: 800; color: var(--text-color); margin-bottom: 40px; display: inline-flex; align-items: center; }
+        .steps-container { display: flex; flex-direction: column; align-items: center; gap: 25px; }
+        .step { display: flex; align-items: center; width: 100%; max-width: 700px; background-color: rgba(0,0,0,0.2); border-radius: 12px; padding: 20px; border: 1px solid var(--accent-gold-border); position: relative; }
+        .step-icon { font-size: 2.5rem; margin-left: 20px; color: var(--accent-gold); flex-shrink: 0; }
+        .step-content { text-align: right; flex-grow: 1; }
+        .step-title { font-size: 1.2rem; font-weight: 700; color: var(--text-color); }
+        .step-description { font-size: 0.95rem; color: var(--text-color-secondary); }
+        .step-number { position: absolute; top: -15px; right: -15px; background-color: var(--accent-gold); color: #121212; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; border: 3px solid var(--card-background); }
+
+        .final-funnel-cta { margin-top: 40px; padding-top: 30px; border-top: 2px dashed var(--accent-gold-border); }
+        .final-funnel-cta h3 { font-size: 1.3rem; font-weight: 700; color: var(--text-color); margin-bottom: 25px; }
+        .porsline-link { display: inline-block; background-color: var(--accent-gold); color: #121212; padding: 15px 30px; border-radius: 10px; text-decoration: none; font-weight: 800; font-size: 1.2rem; transition: all 0.3s; }
+        .porsline-link:hover { background-color: var(--accent-gold-darker); transform: translateY(-2px) scale(1.05); }
+
+        @media (max-width: 768px) {
+            .header-container { padding: 25px; }
+            .main-title { font-size: 2.2rem; }
+            .resume-subtitle, .main-subtitle { font-size: 1rem; }
+            .pricing-container { flex-direction: column; align-items: center; }
+            .pricing-card { width: 100%; max-width: 400px; }
+            .plan-title-toggle > span:first-child { font-size: 2rem; }
+            .price-line { font-size: 1.3rem; }
+            .price-line.discounted { font-size: 1.5rem; }
+            .funnel-title { font-size: 1.5rem; }
+            .step { flex-direction: column; text-align: center; }
+            .step-icon { margin-left: 0; margin-bottom: 15px; }
+            .step-content { text-align: center; }
+            .modal-content { padding: 20px; }
+            .modal-title { font-size: 1.5rem; }
+            .section-divider h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="support-bar">
+        ❓ سوالی دارید یا در مراحل ثبت‌نام به مشکل برخوردید؟ <a href="#" target="_blank">با پشتیبانی تماس بگیرید</a>
+</div>
+<div class="main-container">
+<div class="header-container">
+<h1 class="main-title">طرح‌های انتخاب رشته VIP دکتر میرهلی</h1>
+<p class="resume-subtitle"><strong>(مشاوره رتبه ساز با ۱۴ سال سابقه انتخاب رشته موفق و بیش از ۵۰۰۰ انتخاب رشته مستقیم برای دانش آموزان)</strong></p>
+<p class="main-subtitle">انتخاب رشته، مهم‌ترین انتخاب تحصیلی شماست؛ آن را به متخصص بسپارید.</p>
+</div>
+<div class="notice-box urgency-notice">
+<span class="info-icon">⚠️</span>
+<p><strong>توجه:</strong> با توجه به درخواست بالای ثبت‌نام و زمان اندک دکتر میرهلی، <strong>اولویت با داوطلبانی است که زودتر ثبت‌نام خود را نهایی کنند.</strong> در صورت تکمیل ظرفیت، ثبت‌نام متوقف شده و هزینه ثبت‌نام‌های مازاد، بازگشت داده خواهد شد.</p>
+</div>
+<div class="notice-box policy-notice">
+<span class="info-icon">ℹ️</span>
+<p><strong>دقت کنید:</strong> تمامی طرح‌ها را دقیق بخوانید و سپس ثبت نام کنید. پس از ثبت نام، امکان لغو و درخواست استرداد وجه تحت هیچ عنوانی میسر نیست؛ مگر اینکه به علت افزایش درخواست‌ها، دکتر میرهلی قادر به ارائه مشاوره نباشند. همچنین، در پایان همین صفحه، فایل صوتی توضیحات کامل دکتر میرهلی قرار داده شده که قویاً توصیه می‌شود آن را گوش کنید.</p>
+</div>
+<div class="section-divider">
+<h2><span class="animated-emoji trophy">🏆</span>بسته اصلی انتخاب رشته</h2>
+</div>
+<div class="pricing-container">
+<!-- طرح جامع (اصلی) -->
+<div class="pricing-card vip-highlight" style="width: 420px;">
+<div class="card-header vip">
+<div class="plan-title-toggle"><span>طرح جامع</span></div>
+<label class="suitability-btn" for="main-plan-suitability-modal-toggle">این طرح برای چه کسی مناسب است؟</label>
+</div>
+<div class="card-body">
+<div class="early-bird-badge">🎁 تخفیف ویژه ثبت‌نام زودهنگام</div>
+<div class="price-container">
+<div class="price-line discounted"><del>۸,۵۰۰,۰۰۰</del> ۶,۲۰۰,۰۰۰ <span class="price-currency">تومان</span> (فقط سراسری)</div>
+<div class="price-line discounted"><del>۹,۵۰۰,۰۰۰</del> ۶,۹۰۰,۰۰۰ <span class="price-currency">تومان</span> (سراسری و آزاد)</div>
+</div>
+<div class="value-proposition">
+💡 هزینه یک ترم دانشگاه آزاد یا غیرانتفاعی ده‌ها میلیون تومان است. با این سرمایه‌گذاری، از انتخاب اشتباه و هدر رفتن عمر و سرمایه خود جلوگیری کنید.
+</div>
+<ul class="features-list">
+<li class="has-button"><span>انجام صفر تا صد توسط شخص دکتر میرهلی</span><label class="details-btn" for="item-1-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>دانشنامه کالبدشکافی رشته‌ها</span><label class="details-btn" for="item-2-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>راهنمای جامع شخصیت‌شناسی</span><label class="details-btn" for="item-3-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>پایگاه داده تطبیق رشته با شخصیت</span><label class="details-btn" for="item-4-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>رتبه‌بندی استراتژیک رشته‌ها</span><label class="details-btn" for="item-5-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>دانشنامه جامع قبولی</span><label class="details-btn" for="item-6-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>گنجینه پرسش و پاسخ‌های کلیدی</span><label class="details-btn" for="item-7-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>فرمول ضریب علاقه و تحلیل عددی</span><label class="details-btn" for="item-11-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>فایل تحلیل استراتژیک و کدهای اولیه</span><label class="details-btn" for="item-12-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>چیدمان نهایی کدها و امکان ویرایش</span><label class="details-btn" for="item-13-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>تخمین احتمال قبولی</span><label class="details-btn" for="item-14-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>تماس و پشتیبانی کامل</span><label class="details-btn" for="item-8-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>چک‌لیست مجازی و فضای کاربری شورانگیز</span><label class="details-btn" for="item-9-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>عضویت در کانال پرسش و پاسخ VIP</span><label class="details-btn" for="item-10-modal-toggle" role="button">جزئیات</label></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section-divider">
+<h2><span class="animated-emoji lightbulb">💡</span>بسته‌های ویژه و مشاوره‌ای</h2>
+</div>
+<div class="pricing-container">
+
+<!-- مشاوره و چک نهایی (۴۰ دقیقه) -->
+<div class="pricing-card">
+<div class="card-header">
+<div class="plan-title-toggle"><span>مشاوره و چک نهایی</span></div>
+<label class="suitability-btn" for="review-plus-consult-suitability-modal-toggle">این طرح برای چه کسی مناسب است؟</label>
+</div>
+<div class="card-body">
+<div class="price-container" style="min-height: auto;">
+    <div class="price-line" style="font-size: 1.4rem; color: var(--accent-gold);">۳,۹۰۰,۰۰۰ <span class="price-currency">تومان</span> <span style="font-size: 0.9rem; color: var(--text-color);">(با کانال VIP)</span></div>
+    <div class="price-line" style="font-size: 1.4rem; color: var(--accent-gold);">۳,۲۰۰,۰۰۰ <span class="price-currency">تومان</span> <span style="font-size: 0.9rem; color: var(--text-color);">(بدون کانال)</span></div>
+</div>
+<ul class="features-list">
+<li class="has-button"><span>فایل آموزش صفر تا صد انتخاب رشته شخصی</span><label class="details-btn" for="review-training-file-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>دسترسی به محتوای کانال VIP (در صورت انتخاب)</span><label class="details-btn" for="phase-zero-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>تماس ۴۰ دقیقه‌ای (مشاوره و چک نهایی)</span><label class="details-btn" for="review-plus-consult-call-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>امکان تمدید زمان مشاوره</span><label class="details-btn" for="overtime-modal-toggle" role="button">جزئیات</label></li>
+</ul>
+</div>
+</div>
+
+<!-- مشاوره (۲۰ دقیقه) -->
+<div class="pricing-card">
+<div class="card-header">
+<div class="plan-title-toggle"><span>مشاوره ۲۰ دقیقه‌ای</span></div>
+<label class="suitability-btn" for="consult-plan-suitability-modal-toggle">این طرح برای چه کسی مناسب است؟</label>
+</div>
+<div class="card-body">
+<div class="price-container" style="min-height: auto;">
+    <div class="price-line" style="font-size: 1.4rem; color: var(--accent-gold);">۲,۲۰۰,۰۰۰ <span class="price-currency">تومان</span> <span style="font-size: 0.9rem; color: var(--text-color);">(با کانال VIP)</span></div>
+    <div class="price-line" style="font-size: 1.4rem; color: var(--accent-gold);">۱,۷۰۰,۰۰۰ <span class="price-currency">تومان</span> <span style="font-size: 0.9rem; color: var(--text-color);">(بدون کانال)</span></div>
+</div>
+<ul class="features-list">
+<li class="has-button"><span>دسترسی به محتوای کانال VIP (در صورت انتخاب)</span><label class="details-btn" for="phase-zero-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>یک جلسه تماس تلفنی ۲۰ دقیقه‌ای (مشاوره)</span><label class="details-btn" for="consult-call-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>امکان تمدید زمان مشاوره</span><label class="details-btn" for="overtime-modal-toggle" role="button">جزئیات</label></li>
+</ul>
+</div>
+</div>
+
+<!-- تشخیص الماس -->
+<div class="pricing-card">
+<div class="card-header">
+<div class="plan-title-toggle" style="padding: 8px 15px;"><span style="font-size: 1.8rem;">تشخیص الماس</span></div>
+<label class="suitability-btn" for="diamond-plan-suitability-modal-toggle">این طرح برای چه کسی مناسب است؟</label>
+</div>
+<div class="card-body">
+<div class="price-container" style="min-height: auto;">
+    <div class="price-line" style="font-size: 1.4rem; color: var(--accent-gold);">۱,۱۰۰,۰۰۰ <span class="price-currency">تومان</span> <span style="font-size: 0.9rem; color: var(--text-color);">(با تماس ۱۵ دقیقه‌ای)</span></div>
+    <div class="price-line" style="font-size: 1.4rem; color: var(--accent-gold);">۳۹۰,۰۰۰ <span class="price-currency">تومان</span> <span style="font-size: 0.9rem; color: var(--text-color);">(فقط فایل تحلیل)</span></div>
+</div>
+<ul class="features-list">
+<li class="has-button"><span>تحلیل جامع پرسشنامه (تصمیم برای پشت کنکور)</span><label class="details-btn" for="diamond-analysis-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>یک جلسه تماس تلفنی ۱۵ دقیقه‌ای (در صورت انتخاب)</span><label class="details-btn" for="diamond-call-modal-toggle" role="button">جزئیات</label></li>
+</ul>
+</div>
+</div>
+<!-- فقط کانال VIP -->
+<div class="pricing-card">
+<div class="card-header">
+<div class="plan-title-toggle"><span>فقط کانال VIP</span></div>
+<label class="suitability-btn" for="channel-only-suitability-modal-toggle">این طرح برای چه کسی مناسب است؟</label>
+</div>
+<div class="card-body">
+<div class="price-container" style="min-height: auto;"><div class="price-line" style="font-size: 2.2rem;">۹۹۰,۰۰۰ <span class="price-currency">تومان</span></div></div>
+<ul class="features-list">
+<li class="has-button"><span>دسترسی کامل به محتوای کانال</span><label class="details-btn" for="phase-zero-modal-toggle-3" role="button">جزئیات</label></li>
+</ul>
+</div>
+</div>
+<!-- تست و بررسی احتمال قبولی -->
+<div class="pricing-card">
+<div class="card-header">
+<div class="plan-title-toggle" style="padding: 8px 15px;"><span style="font-size: 1.5rem;">تست و بررسی احتمال قبولی</span></div>
+<label class="suitability-btn" for="test-probability-suitability-modal-toggle">این طرح برای چه کسی مناسب است؟</label>
+</div>
+<div class="card-body">
+<div class="price-container" style="min-height: auto;"><div class="price-line" style="font-size: 2.2rem;">۵۹۰,۰۰۰ <span class="price-currency">تومان</span></div></div>
+<ul class="features-list">
+<li class="has-button"><span>شرکت در تست استرانگ و مایرز</span><label class="details-btn" for="test-strong-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>دریافت فایل بررسی احتمال قبولی</span><label class="details-btn" for="test-file-modal-toggle" role="button">جزئیات</label></li>
+</ul>
+</div>
+</div>
+<!-- طرح تخمین قبولی -->
+<div class="pricing-card">
+<div class="card-header">
+<div class="plan-title-toggle"><span>طرح تخمین قبولی</span></div>
+<label class="suitability-btn" for="estimation-suitability-modal-toggle">این طرح برای چه کسی مناسب است؟</label>
+</div>
+<div class="card-body">
+<div class="price-container" style="min-height: auto;"><div class="price-line" style="font-size: 2.2rem;">۳۹۰,۰۰۰ <span class="price-currency">تومان</span></div></div>
+<ul class="features-list">
+<li class="has-button"><span>بررسی لیست نهایی شما</span><label class="details-btn" for="estimation-check-modal-toggle" role="button">جزئیات</label></li>
+<li class="has-button"><span>دریافت فایل HTML نتیجه</span><label class="details-btn" for="estimation-file-modal-toggle" role="button">جزئیات</label></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="registration-funnel">
+<h2 class="funnel-title"><span class="animated-emoji rocket">🚀</span>مراحل ثبت‌نام در طرح‌های انتخاب رشته</h2>
+<div class="steps-container">
+<div class="step"><div class="step-number">۱</div><div class="step-icon">📝</div><div class="step-content"><h3 class="step-title">تکمیل فرم اطلاعات</h3><p class="step-description">اطلاعات شخصی، تحصیلی و کارنامه کنکور خود را بارگذاری کنید.</p></div></div>
+<div class="step"><div class="step-number">۲</div><div class="step-icon">📄</div><div class="step-content"><h3 class="step-title">مطالعه و تایید قرارداد</h3><p class="step-description">متن قرارداد خدمات را به دقت مطالعه و به صورت دیجیتالی تایید نمایید.</p></div></div>
+<div class="step"><div class="step-number">۳</div><div class="step-icon">💳</div><div class="step-content"><h3 class="step-title">پرداخت هزینه طرح</h3><p class="step-description">از طریق درگاه پرداخت امن، هزینه بسته انتخابی خود را واریز کنید.</p></div></div>
+<div class="step"><div class="step-number">۴</div><div class="step-icon">✅</div><div class="step-content"><h3 class="step-title">شروع فرآیند</h3><p class="step-description">پس از پرداخت موفق، اطلاعات لازم برای شروع فرآیند انتخاب رشته برای شما ارسال می‌شود.</p></div></div>
+</div>
+<div class="final-funnel-cta">
+<h3>برای شروع فرآیند ثبت‌نام، روی لینک زیر کلیک کنید:</h3>
+<a class="porsline-link" href="https://survey.porsline.ir/s/1ZVyUnN7" target="_blank">ورود به سامانه ثبت‌نام انتخاب رشته</a>
+</div>
+</div>
+<div class="closing-section">
+
+<div class="closing-section">
+<div class="audio-player-container">
+<h3>توضیحات صوتی دکتر میرهلی در مورد طرح‌ها:</h3>
+<!-- پخش‌کننده‌ی استاندارد (سازگار با iOS) -->
+<audio controls="" playsinline="" preload="none" style="width:100%;max-width:420px">
+<source src="https://amirmirhelli.ir/Tozihat.mp3" type="audio/mpeg">
+      مرورگر شما از پخش‌کننده صوت پشتیبانی نمی‌کند.
+    </audio>
+<!-- دکمه‌ی پخش/باز کردن مستقیم (برای اطمینان در iPhone) -->
+<div style="margin-top:12px">
+<a class="porsline-link" href="https://amirmirhelli.ir/Tozihat.mp3" rel="noopener" style="text-decoration:none;display:inline-block" target="_blank">
+        ▶️ باز کردن/پخش مستقیم فایل صوتی
+      </a>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+<!-- Modals for Main Plan -->
+<input class="modal-toggle" id="main-plan-suitability-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="main-plan-suitability-modal-toggle">×</label><h2 class="modal-title">طرح جامع برای چه کسی مناسب است؟</h2><div class="modal-body"><p>این طرح برای کسانی است که مایل هستند تمام فرایند انتخاب رشته حیاتی آن‌ها زیر نظر یک <strong>مشاور دقیق، باتجربه و رتبه‌ساز</strong> باشد که ۱۴ سال در زمینه انتخاب رشته سابقه درخشان داشته و هر سال قبولی‌های چشمگیری را ثبت کرده است.</p><p>در این طرح، شما ابتدا به تمامی مطالب کانال‌ها و دانشنامه‌ها دسترسی پیدا کرده و با ذهنی باز و چشمانی گشوده، انتخاب‌های اولیه خود را انجام می‌دهید. سپس، این انتخاب‌ها را برای <strong>چیدمان استراتژیک و تک‌تک کدرشته‌ها به دکتر میرهلی می‌سپارید.</strong> ایشان برای شما کدها را استخراج کرده و مرحله‌به‌مرحله از طریق پیام، فایل صوتی (وویس) یا تماس تلفنی با شما در ارتباط خواهند بود تا به بهترین نتیجه ممکن دست یابید.</p></div></div></div>
+<input class="modal-toggle" id="item-1-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="item-1-modal-toggle">×</label><h2 class="modal-title">انجام صفر تا صد توسط شخص دکتر میرهلی</h2><div class="modal-body"><p>از مرحله صفر که عضویت شما در کانال VIP است، تا انجام تحلیل‌های فاز اول (شخصیت‌شناسی) و فاز سوم (اولویت‌بندی)، تنظیم کدرشته‌های مقدماتی و در نهایت، <strong>چیدمان تک‌تک ۱۵۰ کدرشته سراسری یا ۱۰۰ کدرشته آزاد</strong>، تماماً توسط <strong>شخص دکتر میرهلی</strong> انجام می‌شود، <strong>نه دستیار یا پشتیبان.</strong></p><p class="final-word">این یک تضمین است: چه در پیام‌های تلگرام و چه در تماس‌های تلفنی، شما <strong>بی‌تردید</strong> و به صورت مستقیم با خود ایشان در ارتباط خواهید بود. این تضمین بالاترین سطح کیفیت و تخصص برای سرنوشت‌سازترین تصمیم تحصیلی شماست.</p></div></div></div>
+<input class="modal-toggle" id="item-2-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="item-2-modal-toggle">×</label><h2 class="modal-title">دانشنامه کالبدشکافی رشته‌ها</h2><div class="modal-body"><p>فراموش کنید هر آنچه تا امروز در مورد معرفی رشته خوانده‌اید. شما به یک دانشنامه بی‌نظیر و چندبخشی برای <strong>تک‌تک رشته‌های دانشگاهی</strong> (در تمام گروه‌های آزمایشی) دسترسی پیدا می‌کنید که در آن، هر رشته به صورت عمیق و چندبعدی کالبدشکافی شده است. این تحلیل ۷ بخشی شامل موارد زیر است:</p><ul><li><strong>هویت و فلسفه رشته:</strong> درک عمیق ماهیت و رسالت هر شغل.</li><li><strong>پروفایل دانشجوی ایده‌آل:</strong> بررسی دقیق تیپ‌های شخصیتی (استرانگ و مایرز) و مهارت‌های لازم.</li><li><strong>سفر آکادمیک:</strong> مسیر تحصیلی از کارشناسی تا بالاترین مقاطع.</li><li><strong>آینده شغلی و بازار کار:</strong> بررسی موقعیت‌ها و پتانسیل مهاجرت.</li><li><strong>چشم‌انداز مالی:</strong> تحلیل واقع‌بینانه از پتانسیل درآمدی.</li><li><strong>هشدارها و باورهای غلط:</strong> آشنایی با واقعیت‌های تلخ و شیرین هر رشته.</li><li><strong>جمع‌بندی نهایی:</strong> شامل نمودار راداری مقایسه‌ای و توصیه استراتژیک دکتر میرهلی.</li></ul><p class="final-word">این دانشنامه به شما کمک می‌کند تا فراتر از کلیشه‌ها، آگاهانه‌ترین و هوشمندانه‌ترین تصمیم را برای آینده خود بگیرید.</p></div></div></div>
+<input class="modal-toggle" id="item-3-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="item-3-modal-toggle">×</label><h2 class="modal-title">راهنمای جامع شخصیت‌شناسی</h2><div class="modal-body"><p>انتخاب رشته، فراتر از تطبیق رتبه شما با یک جدول است. بزرگترین اشتباه، ورود به رشته‌ای است که با جوهره شخصیت و علایق ذاتی شما در تضاد باشد. ما برای جلوگیری از این اشتباه سرنوشت‌ساز، از دو ابزار علمی و معتبر جهانی بهره می‌بریم:</p><ul><li><strong>تست رغبت‌سنج شغلی Strong (RIASEC):</strong> این تست به شما می‌گوید به <strong>چه نوع فعالیت‌هایی</strong> (واقع‌گرایانه، جستجوگر، هنری، اجتماعی، متهور، قراردادی) علاقه ذاتی دارید.</li><li><strong>تست شخصیت‌شناسی MBTI:</strong> این تست به شما می‌گوید <strong>چگونه انسانی</strong> هستید (برون‌گرا/درون‌گرا، حسی/شمی، فکری/احساسی، داوری‌کننده/ملاحظه‌کننده).</li></ul><p>در این راهنمای جامع، شما با فلسفه این تست‌ها و معنای هر کد شخصیتی آشنا می‌شوید تا بتوانید نتایج آزمون خود را به درستی تفسیر کرده و از آن برای یک انتخاب آگاهانه استفاده کنید.</p></div></div></div>
+<input class="modal-toggle" id="item-4-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="item-4-modal-toggle">×</label><h2 class="modal-title">پایگاه داده تطبیق رشته با شخصیت</h2><div class="modal-body"><p>پس از شناخت تیپ شخصیتی خود، چگونه رشته‌های متناسب با آن را پیدا کنید؟ ما کار را برای شما ساده کرده‌ایم. شما به یک <strong>پایگاه داده جامع و قابل جستجو</strong> دسترسی خواهید داشت که در آن، بیش از ۱۰۰ رشته دانشگاهی در تمام گروه‌های آزمایشی، بر اساس تیپ‌های شخصیتی مناسب (MBTI و Strong) طبقه‌بندی شده‌اند.</p><p class="final-word">این ابزار قدرتمند به شما اجازه می‌دهد تا به سرعت لیستی از رشته‌هایی که بیشترین همخوانی را با پروفایل شخصیتی شما دارند، استخراج کرده و تحقیقات خود را بر روی آن‌ها متمرکز کنید.</p></div></div></div>
+<input class="modal-toggle" id="item-5-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="item-5-modal-toggle">×</label><h2 class="modal-title">رتبه‌بندی استراتژیک رشته‌ها</h2><div class="modal-body"><p>کدام رشته واقعاً "بهتر" است؟ پاسخ این سوال به معیارهای شما بستگی دارد. ما در این دانشنامه بی‌نظیر، تمام رشته‌ها را بر اساس ۶ معیار کلیدی (پتانسیل درآمد، امنیت شغلی، تعادل کار و زندگی، نیاز به تحصیلات تکمیلی، پتانسیل مهاجرت و تاثیر اجتماعی) امتیازدهی و رتبه‌بندی کرده‌ایم.</p><p>این رتبه‌بندی بر خلاف تصورات رایج، صرفاً بر اساس محبوبیت یا درآمد نیست، بلکه یک <strong>تحلیل استراتژیک</strong> برای یک آینده شغلی پایدار و رضایت‌بخش است. با این ابزار، شما جایگاه واقعی هر رشته را در یک مقایسه جامع و بی‌طرفانه خواهید دید.</p></div></div></div>
+<input class="modal-toggle" id="item-6-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="item-6-modal-toggle">×</label><h2 class="modal-title">دانشنامه جامع قبولی</h2><div class="modal-body"><p>این بخش، جعبه ابزار استراتژیک شما برای درک واقع‌بینانه شانس قبولی است و شامل سه بخش حیاتی است:</p><ul><li><strong>تخمین رتبه قبولی:</strong> جداول کامل و به‌روز شده از حدود رتبه قبولی برای رشته‌های پرطرفدار در دانشگاه‌های مختلف، بر اساس داده‌های کنکور سال گذشته.</li><li><strong>تیپ‌بندی دانشگاه‌ها:</strong> دسته‌بندی تمام دانشگاه‌های کشور (سراسری و آزاد) در سه تیپ استراتژیک، تا جایگاه و سطح رقابتی هر دانشگاه را به خوبی بشناسید.</li><li><strong>راهنمای بومی‌گزینی:</strong> نقشه کامل قطب‌ها و ناحیه‌های بومی کشور و توضیح نوع گزینش (کشوری، قطبی، ناحیه‌ای، استانی) برای هر رشته، تا از این مزیت استراتژیک به بهترین شکل استفاده کنید.</li></ul></div></div></div>
+<input class="modal-toggle" id="item-7-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="item-7-modal-toggle">×</label><h2 class="modal-title">گنجینه پرسش و پاسخ‌های کلیدی</h2><div class="modal-body"><p>در این مسیر سرنوشت‌ساز، ده‌ها سوال کلیدی و مشترک ذهن شما را درگیر می‌کند. از دوراهی "علاقه یا بازار کار؟" و "رشته خوب یا دانشگاه برند؟" گرفته تا نحوه مواجهه با مخالفت خانواده و تصمیم‌گیری برای پشت کنکور ماندن. ما در این گنجینه، به بیش از ۱۶ سوال حیاتی و پرتکرار، پاسخی شفاف، صادقانه و راهگشا داده‌ایم تا هیچ ابهامی در ذهن شما باقی نماند.</p></div></div></div>
+<input class="modal-toggle" id="item-11-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="item-11-modal-toggle">×</label><h2 class="modal-title">فرمول ضریب علاقه و تحلیل عددی</h2><div class="modal-body"><p>هیچ تحلیلی نمی‌تواند جایگزین <strong>عشق و علاقه شخصی شما</strong> شود. علاقه، سوخت موتور حرکت شما در مسیر طولانی و پرچالش هر رشته است. به همین دلیل ما برای آن، بالاترین ضریب یعنی <strong>۳.۰</strong> را در نظر گرفته‌ایم. در این بخش شما یاد می‌گیرید که چگونه با استفاده از فرمول زیر، قطب‌نمای انتخاب رشته را برای خودتان شخصی‌سازی کنید:</p><p style="text-align: center; font-weight: bold; font-size: 1.1rem; background-color: rgba(0,0,0,0.2); padding: 10px; border-radius: 5px;">امتیاز شخصی شما = امتیاز نهایی موزون + (نمره علاقه شما از ۱۰ × ۳.۰)</p><p>این فرمول به شما کمک می‌کند تا انتخاب‌های خود را از حالت کیفی خارج کرده و به یک تحلیل عددی و قابل مقایسه برسید و در نهایت، بهترین رشته را برای <strong>«شما»</strong> کشف کنید.</p></div></div></div>
+<input class="modal-toggle" id="item-12-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="item-12-modal-toggle">×</label><h2 class="modal-title">فایل تحلیل استراتژیک و کدهای اولیه</h2><div class="modal-body"><p>پس از آنکه تمام دانشنامه‌ها را مطالعه کردید و اولویت‌های خود را مشخص نمودید، ما تمام این اطلاعات را در یک <strong>پرونده تحلیل استراتژیک اولیه و کاملاً شخصی‌سازی‌شده</strong> برای شما گردآوری می‌کنیم. این گزارش، یک نقشه راه اختصاصی است که شانس قبولی شما را بر اساس رتبه، سهمیه و مزیت‌های بومی‌گزینی، به سه سناریوی مشخص تقسیم می‌کند:</p><ul><li><strong>انتخاب‌های خوشبینانه (شانس مرزی):</strong> اهداف هیجان‌انگیزی که در مرز قبولی شما قرار دارند و برای دستیابی به آن‌ها از تمام پتانسیل رتبه شما استفاده می‌شود.</li><li><strong>انتخاب‌های واقع‌بینانه (شانس بالا):</strong> ستون فقرات انتخاب رشته شما؛ رشته‌ها و دانشگاه‌هایی که ترکیبی عالی از علاقه و شانس بالای قبولی هستند.</li><li><strong>انتخاب‌های اطمینان‌بخش (کف قابل قبول):</strong> شبکه اطمینان شما که قبولی در آن‌ها تقریباً قطعی است و خیال شما را از هر جهت آسوده می‌کند.</li></ul><p class="final-word">این گزارش به شما کمک می‌کند تا از سردرگمی خارج شده و با دیدی کاملاً شفاف، منطقی و مبتنی بر داده، برای چیدمان کدهای اولیه خود آماده شوید.</p></div></div></div>
+<input class="modal-toggle" id="item-13-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="item-13-modal-toggle">×</label><h2 class="modal-title">چیدمان دقیق کدهای نهایی و امکان ویرایش</h2><div class="modal-body"><p>این، حساس‌ترین و نهایی‌ترین مرحله فرآیند است. در این گام، دکتر میرهلی شخصاً تمام اطلاعات مراحل قبل - از تحلیل شخصیت و علاقه گرفته تا سناریوهای قبولی - را جمع‌بندی کرده و لیست نهایی ۱۵۰ انتخاب شما را به صورت یک فایل PDF دقیق و مرتب ارائه می‌دهند.</p><p>این فایل شامل ستون‌های اولویت، کد رشته، نام رشته، دانشگاه، دوره و تحلیل احتمال قبولی برای هر انتخاب است تا شما تصویر کاملی از چیدمان نهایی داشته باشید.</p><p>شما این لیست را دریافت کرده و فرصت دارید تا آن را به طور کامل بررسی کنید. اگر هرگونه تغییری در اولویت‌ها یا انتخاب‌ها مد نظرتان باشد، می‌توانید آن را با دکتر میرهلی در میان بگذارید تا لیست برای شما ویرایش شود.</p><p class="final-word">این فرآیند رفت و برگشت تا رسیدن به رضایت کامل شما و تایید نهایی لیست ادامه می‌یابد. این تضمین می‌کند که انتخاب نهایی شما، ترکیبی بی‌نقص از استراتژی تخصصی و آرامش خاطر شخصی شماست.</p></div></div></div>
+<input class="modal-toggle" id="item-14-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="item-14-modal-toggle">×</label><h2 class="modal-title">تخمین احتمال قبولی</h2><div class="modal-body"><p>پس از اینکه فرآیند انتخاب رشته انجام شد و لیست نهایی شما مشخص گردید، می‌توانید به دکتر میرهلی پیام دهید. ایشان با بررسی دقیق کدهای انتخابی شما، به صورت تخصصی تحلیل می‌کنند که در کدام کدرشته‌ها احتمال قبولی بالاتری وجود دارد.</p><p class="final-word">همچنین در این مرحله، دکتر میرهلی با استفاده از تجربه و داده‌های موجود، پیش‌بینی می‌کنند که احتمالاً سازمان سنجش در کدام انتخاب شما توقف کرده و قبولی نهایی شما در کدام کد رقم خواهد خورد.</p></div></div></div>
+<input class="modal-toggle" id="item-8-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="item-8-modal-toggle">×</label><h2 class="modal-title">تماس و پشتیبانی کامل</h2><div class="modal-body"><p>در این طرح، شما از <strong>پشتیبانی کامل و نامحدود</strong> از طریق چت خصوصی تلگرام با شخص دکتر میرهلی برخوردار خواهید بود تا تمام سوالات و ابهامات شما در سریع‌ترین زمان ممکن پاسخ داده شود.</p><p>علاوه بر این، <strong>تا زمان نامحدودی که نیاز باشد تا کار کامل و حرفه‌ای انجام شود</strong> برای تماس تلفنی مستقیم با دکتر میرهلی برای شما در نظر گرفته شده است که معمولاً در چند جلسه کوتاه و در نقاط کلیدی فرآیند (مانند پس از تحلیل تست یا پیش از نهایی کردن کدها) استفاده می‌شود.</p><p class="final-word">تجربه ما نشان داده است که با وجود محتوای جامع و کامل کانال‌ها، نیاز اکثر دانش‌آموزان به تماس تلفنی بسیار کم است. با این حال، ما تا رسیدن به نتیجه نهایی و رضایت کامل، در کنار شما خواهیم بود.</p></div></div></div>
+<input class="modal-toggle" id="item-9-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="item-9-modal-toggle">×</label><h2 class="modal-title">چک‌لیست مجازی و فضای کاربری شورانگیز</h2><div class="modal-body"><p>برای اینکه در این مسیر چند مرحله‌ای و پر از جزئیات سردرگم نشوید، یک <strong>چک‌لیست آنلاین و تعاملی</strong> در اختیار شما قرار می‌گیرد. این چک‌لیست که مانند یک نقشه راه عمل می‌کند، تمام وظایف شما را از فاز صفر تا فاز نهایی (هفت فاز) مشخص می‌کند.</p><p>شما با تیک زدن هر وظیفه انجام شده (مانند مشاهده ویدیوها، مطالعه دانشنامه‌ها، شرکت در آزمون‌ها و ارسال فایل‌ها) پیشرفت خود را به صورت ملموس مشاهده می‌کنید. این فضای کاربری جذاب، فرآیند انتخاب رشته را از یک کار استرس‌زا به یک مسیر هدفمند و شفاف تبدیل می‌کند.</p><p class="final-word">در انتهای این چک‌لیست، مسئولیت نهایی شما برای وارد کردن کدها در سایت سنجش نیز یادآوری شده است تا هیچ نکته‌ای از قلم نیفتد.</p></div></div></div>
+<input class="modal-toggle" id="item-10-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="item-10-modal-toggle">×</label><h2 class="modal-title">عضویت در کانال پرسش و پاسخ VIP</h2><div class="modal-body"><p>شما به یک کانال تلگرامی VIP ویژه پرسش و پاسخ دسترسی خواهید داشت. در این کانال، سوالات مهم و پرتکرار سایر دانش‌آموزان به همراه پاسخ‌های جامع دکتر میرهلی به صورت عمومی قرار می‌گیرد تا شما از تجربیات و سوالات دیگران نیز بهره‌مند شوید. این فرآیند یک گنجینه ارزشمند از اطلاعات را ایجاد می‌کند.</p><p>علاوه بر این، همانطور که در بخش پشتیبانی ذکر شد، شما می‌توانید سوالات شخصی و خصوصی خود را مستقیماً از طریق چت خصوصی تلگرام با دکتر میرهلی مطرح کنید و پاسخ خود را دریافت نمایید.</p><p class="final-word">بنابراین شما از دو کانال ارتباطی عمومی (کانال پرسش و پاسخ) و خصوصی (چت مستقیم) برای رفع تمامی ابهامات خود برخوردار هستید.</p></div></div></div>
+
+<!-- Modals for Special Plans -->
+<input class="modal-toggle" id="review-training-file-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="review-training-file-modal-toggle">×</label><h2 class="modal-title">فایل آموزش صفر تا صد انتخاب رشته شخصی</h2><div class="modal-body"><p>در این طرح، یک فایل آموزشی جامع برای شما ارسال می‌شود که در آن دکتر میرهلی به صورت کامل و قدم‌به‌قدم آموزش داده‌اند که چگونه می‌توانید صفر تا صد فرآیند انتخاب رشته را شخصاً و با بالاترین دقت انجام دهید.</p><p class="final-word">این آموزش به شما کمک می‌کند تا پیش از جلسه مشاوره، لیست خود را با اصول حرفه‌ای و استراتژیک آماده کنید.</p></div></div></div>
+<input class="modal-toggle" id="consult-plan-suitability-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="consult-plan-suitability-modal-toggle">×</label><h2 class="modal-title">طرح مشاوره ۲۰ دقیقه‌ای برای چه کسی مناسب است؟</h2><div class="modal-body"><p>این یک طرح اقتصادی است برای کسانی که صرفاً می‌خواهند با دکتر میرهلی مشورت کرده و از راهنمایی‌های ایشان برای انتخاب رشته شخصی خود بهره‌مند شوند.</p><p>در این طرح، شما می‌توانید با انتخاب گزینه همراه با کانال VIP، به محتوای کامل کانال‌ها دسترسی پیدا کنید که شما را تا حد زیادی در مسیر انتخاب رشته پیش می‌برد. پس از بررسی کامل مطالب، یک جلسه مشاوره تلفنی ۲۰ دقیقه‌ای با دکتر میرهلی خواهید داشت تا سوالات نهایی خود را بپرسید.</p><p class="final-word"><strong>نکته بسیار مهم:</strong> دقت کنید در این طرح قرار نیست انتخاب رشته برای شما انجام شود. صرفاً به سوالات شما در مورد اینکه «آیا رشته‌های خوبی انتخاب کرده‌ام؟» یا «شانس قبولی در این رشته‌ها را دارم؟» پاسخ داده می‌شود. این طرح حتی برای بررسی و چک کردن لیست انتخاب‌های شما نیز مناسب نیست.</p></div></div></div>
+<input class="modal-toggle" id="phase-zero-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="phase-zero-modal-toggle">×</label><h2 class="modal-title">محتویات کانال VIP در این طرح</h2><div class="modal-body"><p>در صورت تهیه طرح همراه با کانال، شما به بخش بزرگی از محتواهای دانشی و استراتژیک «طرح جامع» که برای یک انتخاب رشته آگاهانه ضروری هستند، دسترسی خواهید داشت. این محتواها عبارتند از:</p><ul><li><strong>دانشنامه کالبدشکافی رشته‌ها:</strong> تحلیل عمیق و چندبعدی تمام رشته‌های دانشگاهی.</li><li><strong>راهنمای جامع شخصیت‌شناسی:</strong> آشنایی با تست‌های Strong و MBTI برای درک بهتر خود.</li><li><strong>پایگاه داده تطبیق رشته با شخصیت:</strong> یافتن رشته‌های متناسب با پروفایل شخصیتی شما.</li><li><strong>رتبه‌بندی استراتژیک رشته‌ها:</strong> مقایسه رشته‌ها بر اساس معیارهای کلیدی مانند بازار کار و درآمد.</li><li><strong>دانشنامه جامع قبولی:</strong> شامل تخمین رتبه، تیپ‌بندی دانشگاه‌ها و راهنمای بومی‌گزینی.</li><li><strong>گنجینه پرسش و پاسخ‌های کلیدی:</strong> پاسخ به ۱۶ سوال حیاتی و پرتکرار انتخاب رشته.</li><li><strong>عضویت در کانال پرسش و پاسخ VIP:</strong> بهره‌مندی از سوالات دیگران و پاسخ‌های عمومی دکتر میرهلی.</li></ul></div></div></div>
+<input class="modal-toggle" id="consult-call-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="consult-call-modal-toggle">×</label><h2 class="modal-title">جزئیات تماس مشاوره‌ای (۲۰ دقیقه)</h2><div class="modal-body"><p>این طرح شامل یک جلسه تماس تلفنی ۲۰ دقیقه‌ای با شخص دکتر میرهلی است. شما می‌توانید سوالات نهایی و کلیدی خود را که در مورد مسیر کلی انتخاب رشته‌تان دارید، از ایشان بپرسید.</p><p class="final-word"><strong>تذکر مهم:</strong> این جلسه مشاوره صرفاً برای پاسخ به سوالات و ارائه راهنمایی کلی است و شامل خدماتی مانند چیدمان کدها یا بررسی کامل لیست انتخاب رشته شما نمی‌شود. هدف، توانمندسازی شما برای انجام یک انتخاب رشته صحیح توسط خودتان است.</p></div></div></div>
+<input class="modal-toggle" id="review-plus-consult-suitability-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="review-plus-consult-suitability-modal-toggle">×</label><h2 class="modal-title">طرح مشاوره و چک نهایی برای چه کسی مناسب است؟</h2><div class="modal-body"><p>این طرح برای داوطلبانی طراحی شده که می‌خواهند فرآیند انتخاب رشته را <strong>خودشان</strong> انجام دهند، اما در نهایت به یک <strong>بررسی دقیق و نظر کارشناسی</strong> از سوی دکتر میرهلی نیاز دارند تا با اطمینان خاطر انتخاب‌های خود را نهایی کنند.</p><p>شما در یک جلسه تماس تلفنی ۴۰ دقیقه‌ای، هم سوالات مشاوره‌ای خود را می‌پرسید و هم لیست نهایی خود را برای بررسی و دریافت نظر تخصصی دکتر میرهلی ارائه می‌دهید.</p><p class="final-word"><strong>توجه:</strong> در این طرح، دکتر میرهلی وظیفه کدزنی یا ویرایش لیست شما را بر عهده ندارد. ایشان صرفاً لیست شما را چک کرده و نظر مشورتی و کارشناسی خود را برای بهبود آن ارائه می‌دهند. مسئولیت نهایی کردن و ثبت کدها با خود دانش‌آموز است.</p></div></div></div>
+<input class="modal-toggle" id="review-plus-consult-call-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="review-plus-consult-call-modal-toggle">×</label><h2 class="modal-title">جزئیات تماس ۴۰ دقیقه‌ای (مشاوره و چک نهایی)</h2><div class="modal-body"><p>این طرح شامل یک جلسه تماس تلفنی ۴۰ دقیقه‌ای با شخص دکتر میرهلی است. این زمان به دو بخش اصلی تقسیم می‌شود:</p><ul><li><strong>مشاوره و گفت‌وگو:</strong> شما می‌توانید سوالات و دغدغه‌های کلی خود را مطرح کنید و راهنمایی بگیرید.</li><li><strong>بررسی و چک لیست نهایی:</strong> شما لیست انتخاب رشته‌ای که خودتان آماده کرده‌اید را ارائه می‌دهید و دکتر میرهلی آن را بررسی کرده و نظر کارشناسی خود را در مورد قوت، ضعف و ترتیب اولویت‌های آن اعلام می‌کند.</li></ul><p class="final-word">هدف این جلسه، ارائه نظر تخصصی و مشورت نهایی است تا شما بتوانید با اطمینان بیشتری لیست خود را ثبت کنید. این طرح شامل چیدمان یا ویرایش کدها توسط مشاور نمی‌شود.</p></div></div></div>
+
+<!-- Shared Overtime Modal -->
+<input class="modal-toggle" id="overtime-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="overtime-modal-toggle">×</label><h2 class="modal-title">امکان تمدید زمان مشاوره</h2><div class="modal-body"><p>زمان‌های تعیین شده برای هر طرح (۲۰ دقیقه، ۳۰ دقیقه یا ۴۰ دقیقه) بر اساس تجربه سال‌ها مشاوره، برای انجام کامل فرآیند مربوطه کاملاً کافی و استاندارد است.</p><p>شما نباید بیشتر از زمان تعیین شده در طرح خود صحبت کنید. با این حال، در صورتی که به دلایل شخصی، وسواس زیاد یا پیچیدگی خاص شرایطتان، نیاز به زمان مشاوره بیشتری داشته باشید، می‌توانید با هماهنگی قبلی، زمان اضافه خریداری و شارژ نمایید.</p><p class="final-word">تاکید می‌شود که مدیریت زمان در طول تماس به عهده دانش‌آموز است و در صورت اتمام زمان، برای ادامه مکالمه نیاز به تهیه زمان مازاد خواهد بود.</p></div></div></div>
+
+<input class="modal-toggle" id="diamond-plan-suitability-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="diamond-plan-suitability-modal-toggle">×</label><h2 class="modal-title">طرح تشخیص الماس برای چه کسی مناسب است؟</h2><div class="modal-body"><p>این طرح برای داوطلبانی طراحی شده که در حیاتی‌ترین دوراهی تحصیلی خود قرار گرفته‌اند: <strong>«آیا پشت کنکور ماندن برای من یک تصمیم استراتژیک و درست است یا اتلاف وقت و فرسایش بیشتر؟»</strong></p><p>اگر شما نیز با این تردید بزرگ مواجه هستید و نمی‌خواهید بر اساس احساسات یا حرف‌های کلی دیگران برای یک سال سرنوشت‌ساز از زندگی خود تصمیم بگیرید، این طرح برای شماست. هدف این طرح، ارائه یک پاسخ <strong>عینی، علمی و شخصی‌سازی‌شده</strong> به این سوال واحد و کلیدی است.</p></div></div></div>
+<input class="modal-toggle" id="diamond-analysis-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="diamond-analysis-modal-toggle">×</label><h2 class="modal-title">جزئیات تحلیل جامع پرسشنامه</h2><div class="modal-body"><p>قلب این طرح، یک پرسشنامه آنلاین، دقیق و علمی در بستر «پرس‌لاین» است که شما به آن پاسخ می‌دهید. این پرسشنامه تمام ابعاد عملکردی، روانشناختی و محیطی شما را کالبدشکافی می‌کند.</p><p>پس از ارسال پاسخ‌ها، تیم تحلیل ما به سرپرستی دکتر میرهلی، اطلاعات شما را بررسی کرده و یک <strong>فایل گزارش استراتژیک چند صفحه‌ای (مشابه نمونه تحلیل ضمیمه‌شده)</strong> برای شما تهیه می‌کند. این گزارش شامل بخش‌های زیر است:</p><ul><li><strong>کالبدشکافی عملکرد:</strong> تحلیل نمرات، تراز و شکاف بین توانایی و نتیجه.</li><li><strong>تحلیل الگوهای روانشناختی:</strong> شناسایی الگوهایی مانند کمال‌گرایی، اهمال‌کاری و مکانیزم‌های مقابله‌ای.</li><li><strong>تشخیص نهایی:</strong> ریشه‌یابی دقیق مشکل اصلی شما.</li><li><strong>حکم استراتژیک:</strong> پاسخ شفاف و مشروط (بله یا خیر) به سوال «آیا باید پشت کنکور بمانم؟».</li><li><strong>نقشه راه عملی:</strong> ارائه راهکارهای دقیق در صورت مثبت بودن پاسخ.</li><li><strong>تحلیل سناریو:</strong> پیش‌بینی آینده شما در صورت اجرای نقشه راه یا تکرار اشتباهات.</li></ul></div></div></div>
+<input class="modal-toggle" id="diamond-call-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="diamond-call-modal-toggle">×</label><h2 class="modal-title">جزئیات تماس تلفنی ۱۵ دقیقه‌ای</h2><div class="modal-body"><p>پس از دریافت و مطالعه دقیق فایل تحلیل استراتژیک، در صورت تهیه طرح همراه با تماس، یک جلسه تماس تلفنی ۱۵ دقیقه‌ای با شخص دکتر میرهلی برای شما هماهنگ می‌شود.</p><p>هدف از این تماس، جمع‌بندی نهایی، پاسخ به سوالات احتمالی شما در مورد <strong>محتویات گزارش</strong> و ارائه توصیه‌های نهایی برای تصمیم‌گیری قاطعانه است.</p><p class="final-word"><strong>نکته بسیار بسیار مهم:</strong> این تماس <strong>انحصاراً و فقط</strong> برای صحبت در مورد نتیجه تحلیل و تصمیم برای پشت کنکور ماندن یا نماندن است. در این جلسه به هیچ‌گونه سوال دیگری خارج از این موضوع (مانند معرفی رشته، انتخاب دانشگاه و...) پاسخ داده نخواهد شد.</p></div></div></div>
+<input class="modal-toggle" id="channel-only-suitability-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="channel-only-suitability-modal-toggle">×</label><h2 class="modal-title">طرح فقط کانال VIP برای چه کسی مناسب است؟</h2><div class="modal-body"><p>این طرح، اقتصادی‌ترین راه برای دسترسی به گنجینه اطلاعاتی و استراتژیک دکتر میرهلی است. این بسته مخصوص داوطلبان <strong>خودراهبر و باانگیزه‌ای</strong> است که اطمینان دارند می‌توانند فرآیند انتخاب رشته را به تنهایی مدیریت کنند، اما برای این کار به داده‌های خام، تحلیل‌های عمیق و محتوای آموزشی بی‌نظیر نیاز دارند.</p><p>شما با تهیه این طرح، به تمام دانشنامه‌ها، فایل‌های تحلیلی و راهنماهای استراتژیک دسترسی پیدا کرده و با استفاده از این ابزارهای قدرتمند، خودتان انتخاب رشته را از صفر تا صد انجام می‌دهید.</p><p class="final-word"><strong>نکته بسیار مهم:</strong> این طرح شامل <strong>هیچ‌گونه</strong> مشاوره شخصی، تماس تلفنی، پشتیبانی خصوصی در تلگرام یا بررسی لیست انتخاب رشته شما توسط دکتر میرهلی نمی‌شود. شما صرفاً دسترسی به محتوا را خریداری می‌کنید.</p></div></div></div>
+<input class="modal-toggle" id="phase-zero-modal-toggle-3" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="phase-zero-modal-toggle-3">×</label><h2 class="modal-title">محتویات کانال در این طرح</h2><div class="modal-body"><p>با تهیه این طرح، شما به بخش بزرگی از محتواهای دانشی و استراتژیک «طرح جامع» که برای یک انتخاب رشته آگاهانه ضروری هستند، دسترسی خواهید داشت. این محتواها عبارتند از:</p><ul><li><strong>دانشنامه کالبدشکافی رشته‌ها:</strong> تحلیل عمیق و چندبعدی تمام رشته‌های دانشگاهی.</li><li><strong>راهنمای جامع شخصیت‌شناسی:</strong> آشنایی با تست‌های Strong و MBTI برای درک بهتر خود.</li><li><strong>پایگاه داده تطبیق رشته با شخصیت:</strong> یافتن رشته‌های متناسب با پروفایل شخصیتی شما.</li><li><strong>رتبه‌بندی استراتژیک رشته‌ها:</strong> مقایسه رشته‌ها بر اساس معیارهای کلیدی مانند بازار کار و درآمد.</li><li><strong>دانشنامه جامع قبولی:</strong> شامل تخمین رتبه، تیپ‌بندی دانشگاه‌ها و راهنمای بومی‌گزینی.</li><li><strong>گنجینه پرسش و پاسخ‌های کلیدی:</strong> پاسخ به ۱۶ سوال حیاتی و پرتکرار انتخاب رشته.</li><li><strong>عضویت در کانال پرسش و پاسخ VIP:</strong> بهره‌مندی از سوالات دیگران و پاسخ‌های عمومی دکتر میرهلی.</li></ul></div></div></div>
+
+<!-- Modals for Test & Probability Plan -->
+<input class="modal-toggle" id="test-probability-suitability-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="test-probability-suitability-modal-toggle">×</label><h2 class="modal-title">طرح تست و بررسی احتمال قبولی برای چه کسی مناسب است؟</h2><div class="modal-body"><p>این طرح برای کسانی مناسب است که تمایل دارند پیش از هرگونه تصمیم‌گیری، تیپ شخصیتی خود را به صورت علمی بشناسند و بدانند با رتبه‌ای که کسب کرده‌اند، در چه رشته‌هایی شانس قبولی دارند.</p><p class="final-word"><strong>توجه مهم:</strong> در این طرح نه انتخاب رشته‌ای انجام می‌شود و نه کدی بررسی می‌گردد. شما صرفاً در تست استرانگ و مایرز شرکت می‌کنید و بر اساس تیپ شخصیتی و رتبه شما، یک فایل بررسی احتمال قبولی برایتان ارسال می‌شود. در این طرح هیچ‌گونه تماس تلفنی یا پیامکی وجود ندارد.</p></div></div></div>
+<input class="modal-toggle" id="test-strong-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="test-strong-modal-toggle">×</label><h2 class="modal-title">شرکت در تست استرانگ و مایرز</h2><div class="modal-body"><p>شما در دو آزمون معتبر جهانی شرکت خواهید کرد:</p><ul><li><strong>تست رغبت‌سنج شغلی Strong (RIASEC):</strong> برای شناخت علایق ذاتی و محیط‌های کاری مناسب شما.</li><li><strong>تست شخصیت‌شناسی MBTI:</strong> برای درک عمیق‌تر از ویژگی‌های فردی و نحوه تعامل شما با جهان.</li></ul><p>نتایج این تست‌ها پایه و اساس تحلیل احتمال قبولی شما را تشکیل خواهد داد.</p></div></div></div>
+<input class="modal-toggle" id="test-file-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="test-file-modal-toggle">×</label><h2 class="modal-title">دریافت فایل بررسی احتمال قبولی</h2><div class="modal-body"><p>پس از انجام تست‌ها، ما اطلاعات شما را در یک پرونده تحلیل استراتژیک و شخصی‌سازی‌شده گردآوری می‌کنیم. این فایل شانس قبولی شما را بر اساس رتبه، سهمیه و تیپ شخصیتی به سه سناریوی خوشبینانه، واقع‌بینانه و اطمینان‌بخش تقسیم می‌کند.</p><p class="final-word">این فایل صرفاً از طریق بستر مربوطه برای شما ارسال می‌شود و شامل هیچ‌گونه پشتیبانی چت یا تماس تلفنی نخواهد بود.</p></div></div></div>
+
+<!-- Modals for Estimation Plan -->
+<input class="modal-toggle" id="estimation-suitability-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="estimation-suitability-modal-toggle">×</label><h2 class="modal-title">طرح تخمین قبولی برای چه کسی مناسب است؟</h2><div class="modal-body"><p>این طرح مخصوص داوطلبانی است که صفر تا صد انتخاب رشته را خودشان انجام داده‌اند و لیست نهایی کدهایشان آماده است، اما می‌خواهند پیش از ثبت نهایی در سایت سنجش، یک ارزیابی و تخمین دقیق از شانس قبولی لیست خود داشته باشند.</p><p class="final-word"><strong>توجه مهم:</strong> در این طرح، شما فایل انتخاب رشته خود را برای دکتر میرهلی می‌فرستید و ایشان در قالب یک فایل HTML، وضعیت قبولی شما را بررسی کرده و نتیجه را برایتان ارسال می‌کنند. این طرح شامل هیچ‌گونه تماس تلفنی، پیامکی یا ویرایش کدها نمی‌باشد.</p></div></div></div>
+<input class="modal-toggle" id="estimation-check-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="estimation-check-modal-toggle">×</label><h2 class="modal-title">بررسی لیست نهایی شما</h2><div class="modal-body"><p>شما فایل نهایی انتخاب رشته خود را ارسال می‌کنید. دکتر میرهلی با استفاده از پایگاه داده جامع قبولی‌ها و تجربه چندین ساله، لیست شما را از نظر منطق چیدمان و احتمال قبولی در کدهای وارد شده مورد بررسی قرار می‌دهد.</p></div></div></div>
+<input class="modal-toggle" id="estimation-file-modal-toggle" type="checkbox"><div class="modal-backdrop"><div class="modal-content"><label class="modal-close" for="estimation-file-modal-toggle">×</label><h2 class="modal-title">دریافت فایل HTML نتیجه</h2><div class="modal-body"><p>نتیجه بررسی لیست شما در قالب یک فایل اختصاصی HTML برای شما ارسال می‌شود. در این فایل مشخص شده است که وضعیت لیست شما چگونه است و در کدام بخش‌ها شانس قبولی بالاتری دارید.</p><p class="final-word">ارسال این فایل پایان فرآیند این طرح است و امکان پرسش و پاسخ یا تماس تلفنی پیرامون آن وجود ندارد.</p></div></div></div>
+
+<script>
+        // No JS needed for modals, they work with CSS :checked selector.
+</script>
+
+
+
+</body></html>
